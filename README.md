@@ -1,2 +1,4 @@
-# alura-typer
-Projeto do Curso de Jquery da Alura => Alurinha Typer 
+# Alura-Typer
+Projeto do Curso de Jquery da Alura => Alurinha Typer
+Código Refatorado.
+
