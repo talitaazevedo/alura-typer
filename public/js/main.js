@@ -21,5 +21,27 @@ campo.on("input", function(){
     
 });
 
+//trabalhando com o tempo de digitação
 
+let tempoRestante = $('#tempo-digitacao').text();
+
+
+campo.one("focus", function(){
+    console.log('## Estou no campo## ');
+    var cronometroId = setInterval(function(){
+        tempoRestante--;
+        console.log('##Iniciando Cronometro### ');
+        console.log(tempoRestante);
+        $("#tempo-digitacao").text(tempoRestante);
+        if(tempoRestante < 1){
+            campo.attr('disabled', true);
+            clearInterval(cronometroId);
+
+        }
+        
+    },1000);
+    
+
+
+});
 
