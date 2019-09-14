@@ -72,6 +72,8 @@ function reiniciaJogo() {
     $('#contador-caracteres').text('0');
     $('#tempo-digitacao').text(tempoInicial);
     campo.toggleClass('campo-desativado');
+    campo.removeClass('borda-vermelha');
+    campo.removeClass('borda-verde');
     inicializaCronometro();
 }
 
