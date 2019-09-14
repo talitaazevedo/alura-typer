@@ -89,7 +89,14 @@ function inicializaMarcadores() {
             campo.addClass('borda-vermelha');
             campo.removeClass('borda-verde');
         }
-
+        //Código com ECMA Script 6
+        /*
+        if (frase.startsWith(digitado)) {
+            campo.addClass("borda-verde")
+        } else {
+            campo.addClass('borda-vermelha');
+        }
+*/
 
     });
 }
