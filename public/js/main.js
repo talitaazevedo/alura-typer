@@ -5,7 +5,9 @@ $(function () {
     atualizaTamanhoFrase();
     inicializaContadores();
     inicializaCronometro();
+    inicializaMarcadores();
     $('#botao-reiniciar').click(reiniciaJogo);
+
     console.log("### BORA APRENDER ###");
 
 });
