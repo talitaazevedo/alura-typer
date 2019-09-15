@@ -8,7 +8,7 @@ $(function () {
     inicializaMarcadores();
     $('#botao-reiniciar').click(reiniciaJogo);
     reiniciaJogo();
-    console.log("### BORA APRENDER ###");
+    console.log("### Todas as Funções foram carregadas ###");
 
 });
 
@@ -19,11 +19,11 @@ function atualizaTamanhoFrase() {
     var tamanhoFrase = $("#tamanho-frase");
     tamanhoFrase.text(numeroDePalavras);
 
+
 }
 
 function inicializaContadores() {
     campo.on("input", function () {
-        console.log("##cliquei no campo###");
         var conteudo = campo.val();
         var qtdPalavras = conteudo.split(/\S+/).length;
         $("#contador-palavras-digitadas").text(qtdPalavras);
@@ -35,16 +35,12 @@ function inicializaContadores() {
 
 }
 
-function InicializaCronometro() {
+function inicializaCronometro() {
     let tempoRestante = $('#tempo-digitacao').text();
-
-
     campo.one("focus", function () {
-        console.log('## Estou no campo## ');
+
         var cronometroId = setInterval(function () {
             tempoRestante--;
-            console.log('##Iniciando Cronometro### ');
-            console.log(tempoRestante);
             $("#tempo-digitacao").text(tempoRestante);
             if (tempoRestante < 1) {
                 campo.attr('disabled', true);
@@ -69,13 +65,16 @@ function reiniciaJogo() {
     campo.removeClass('borda-vermelha');
     campo.removeClass('borda-verde');
     inicializaCronometro();
+    console.log('Cliquei em reiniciar Jogo');
 }
 
 function inicializaMarcadores() {
-    var frase = $('.frase').text();
+    var frase = $(".frase").text();
     campo.on('input', function () {
+
         let digitado = campo.val();
         let comparavel = frase.substr(0, digitado.length);
+
         if (digitado == comparavel) {
             campo.addClass('borda-verde');
             campo.removeClass('borda-vermelha');
@@ -83,6 +82,8 @@ function inicializaMarcadores() {
             campo.addClass('borda-vermelha');
             campo.removeClass('borda-verde');
         }
+        console.log('digitado:' + digitado);
+        console.log('comparavel:' + comparavel);
     });
 }
 //Código com ECMA Script 6
