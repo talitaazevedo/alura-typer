@@ -8,7 +8,7 @@ $(function () {
     inicializaMarcadores();
     $('#botao-reiniciar').click(reiniciaJogo);
     reiniciaJogo();
-    inserePlacar();
+
     console.log("### Todas as Funções foram carregadas ###");
 
 });
@@ -48,6 +48,7 @@ function inicializaCronometro() {
                 clearInterval(cronometroId);
                 $('#botao-reiniciar').attr('disabled', false);
                 campo.toggleClass('campo-desativado');
+                inserePlacar();
 
             }
 
@@ -95,41 +96,3 @@ function inicializaMarcadores() {
             campo.addClass('borda-vermelha');
         }
 */
-
-function novaLinha(usuario, palavras) {
-
-    let linha = $("<tr>");
-    let colunaUsuario = $("<td>").text(usuario);
-    let colunaPalavras = $('<td>').text(palavras);
-    let colunaRemover = $('<td>');
-
-    let link = $('<a>').attr('href', '#').addClass('botao-remover');
-    let icone = $('<i>').addClass('small').addClass('material-icons').text('delete');
-
-
-    link.append(icone);
-    colunaRemover.append(link);
-
-    linha.append(colunaUsuario);
-    linha.append(colunaPalavras);
-    linha.append(colunaRemover);
-
-
-    return linha;
-
-}
-
-function removeLinha(event) {
-    event.preventDefault();
-    $(this).parent().parent().remove();
-
-}
-
-function inserePlacar() {
-    let corpoTabela = $('.placar').find('tbody');
-    let usuario = 'Seu-Nome';
-    let numPalavras = $('#contador-palavras-digitadas').text();
-    let linha = novaLinha(usuario, numPalavras);
-    linha.find('.botao-remover').click(removeLinha);
-    corpoTabela.append(linha);
-}
