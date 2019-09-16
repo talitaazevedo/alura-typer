@@ -8,6 +8,7 @@ $(function () {
     inicializaMarcadores();
     $('#botao-reiniciar').click(reiniciaJogo);
     reiniciaJogo();
+    inserePlacar();
     console.log("### Todas as Funções foram carregadas ###");
 
 });
@@ -120,6 +121,15 @@ function novaLinha(usuario, palavras) {
 
 function removeLinha(event) {
     event.preventDefault();
-    $(this).remove();
+    $(this).parent().parent().remove();
 
+}
+
+function inserePlacar() {
+    let corpoTabela = $('.placar').find('tbody');
+    let usuario = 'Seu-Nome';
+    let numPalavras = $('#contador-palavras-digitadas').text();
+    let linha = novaLinha(usuario, numPalavras);
+    linha.find('.botao-remover').click(removeLinha);
+    corpoTabela.append(linha);
 }
