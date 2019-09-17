@@ -1,3 +1,5 @@
+
+$('#botao-placar').click(mostraPlacar);
 function inserePlacar() {
     let corpoTabela = $('.placar').find('tbody');
     let usuario = 'Seu-Nome';
@@ -50,7 +52,7 @@ function mostraPlacar(){
 
 function scrollPlacar(){
     let posicaoPlacar = $('.placar').offset();
-    $(body).animate({
+    $('body').animate({
         scrolltop: posicaoPlacar +"px"
     },1000);
 }

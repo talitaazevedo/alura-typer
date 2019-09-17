@@ -3,11 +3,11 @@ var campo = $(".campo-digitacao");
 
 $(function () {
     atualizaTamanhoFrase();
-    inicializaContadores();
     inicializaCronometro();
     inicializaMarcadores();
+    inicializaContadores();
     $('#botao-reiniciar').click(reiniciaJogo);
-    $('#botao-placar').click(mostraPlacar);
+    
 
     console.log("### Todas as Funções foram carregadas ###");
 
@@ -30,6 +30,7 @@ function inicializaContadores() {
         $("#contador-palavras-digitadas").text(qtdPalavras);
         var qtdCaracteres = conteudo.length;
         $("#contador-caracteres").text(qtdCaracteres);
+        
 
     });
 
