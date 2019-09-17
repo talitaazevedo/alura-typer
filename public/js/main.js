@@ -7,7 +7,7 @@ $(function () {
     inicializaCronometro();
     inicializaMarcadores();
     $('#botao-reiniciar').click(reiniciaJogo);
-    reiniciaJogo();
+    $('#botao-placar').click(mostraPlacar);
 
     console.log("### Todas as Funções foram carregadas ###");
 
