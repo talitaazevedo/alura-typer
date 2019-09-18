@@ -7,6 +7,7 @@ $(function () {
     inicializaMarcadores();
     inicializaContadores();
     $('#botao-reiniciar').click(reiniciaJogo);
+    atualizaPlacar();
     
 
     console.log("### Todas as Funções foram carregadas ###");

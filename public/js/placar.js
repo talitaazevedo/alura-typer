@@ -56,3 +56,38 @@ function scrollPlacar(){
         scrolltop: posicaoPlacar +"px"
     },1000);
 }
+
+$("#botao-sync").click(sincronizaPlacar);
+
+function sincronizaPlacar(){
+    var placar = [];
+    var linhas = $('tbody>tr');
+
+
+    linhas.each(function(){
+        let usuario = $(this).find('td:nth-child(1)').text();
+        let palavras = $(this).find('td:nth-child(2)').text();
+        let score = {
+            usuario: usuario,
+            pontos: palavras
+        };
+        placar.push(score); // aqui o array recebe o score
+
+    });
+    let dados={
+        placar: placar
+    };
+    $.post('http://localhost:3000/placar', dados, function(){
+        console.log('Placar sincronizado  com sucesso');
+    });
+}
+
+function atualizaPlacar(){
+    $get('http://localhost:3000/placar',function(data){
+        $(data).each(function(){
+            let linha =  novaLinha(this.usuario,this.pontos);
+            linha.find('.botao-remover').click(removeLinha);
+            $('tbody').append(linha);
+        });
+    });
+}
