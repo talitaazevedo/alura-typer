@@ -29,3 +29,12 @@ body{
     overflow: scroll;
 
 }
+
+#erro{
+    display: none;
+    color: red;
+
+}
+#spinner{
+    display: none;
+}
