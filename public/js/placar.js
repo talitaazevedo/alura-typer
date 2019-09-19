@@ -1,12 +1,12 @@
-
 $('#botao-placar').click(mostraPlacar);
+
 function inserePlacar() {
-    let corpoTabela = $('.placar').find('tbody');
+    let tbody = $('.placar').find('tbody');
     let usuario = 'Seu-Nome';
     let numPalavras = $('#contador-palavras-digitadas').text();
     let linha = novaLinha(usuario, numPalavras);
     linha.find('.botao-remover').click(removeLinha);
-    corpoTabela.append(linha);
+    tbody.append(linha);
     $('.placar').slideDown(500);
     scrollPlacar();
 }
@@ -15,10 +15,10 @@ function removeLinha(event) {
     event.preventDefault();
     let linha = $(this).parent().parent();
     linha.fadeOut(1000);
-    setTimeout(function(){
+    setTimeout(function () {
 
         linha.remove();
-    },1000);
+    }, 1000);
 
 }
 
@@ -45,26 +45,26 @@ function novaLinha(usuario, palavras) {
 
 }
 
-function mostraPlacar(){
+function mostraPlacar() {
     $('.placar').stop().slideToggle(600);
 
 }
 
-function scrollPlacar(){
+function scrollPlacar() {
     let posicaoPlacar = $('.placar').offset();
     $('body').animate({
-        scrolltop: posicaoPlacar +"px"
-    },1000);
+        scrolltop: posicaoPlacar + "px"
+    }, 1000);
 }
 
 $("#botao-sync").click(sincronizaPlacar);
 
-function sincronizaPlacar(){
+function sincronizaPlacar() {
     var placar = [];
     var linhas = $('tbody>tr');
 
 
-    linhas.each(function(){
+    linhas.each(function () {
         let usuario = $(this).find('td:nth-child(1)').text();
         let palavras = $(this).find('td:nth-child(2)').text();
         let score = {
@@ -74,18 +74,18 @@ function sincronizaPlacar(){
         placar.push(score); // aqui o array recebe o score
 
     });
-    let dados={
+    let dados = {
         placar: placar
     };
-    $.post('http://localhost:3000/placar', dados, function(){
+    $.post('http://localhost:3000/placar', dados, function () {
         console.log('Placar sincronizado  com sucesso');
     });
 }
 
-function atualizaPlacar(){
-    $get('http://localhost:3000/placar',function(data){
-        $(data).each(function(){
-            let linha =  novaLinha(this.usuario,this.pontos);
+function atualizaPlacar() {
+    $get('http://localhost:3000/placar', function (data) {
+        $(data).each(function () {
+            let linha = novaLinha(this.usuario, this.pontos);
             linha.find('.botao-remover').click(removeLinha);
             $('tbody').append(linha);
         });

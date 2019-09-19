@@ -2,10 +2,13 @@
     font-size: 20px;
     height: 130px;
     border: 3px solid gray;
+    
 }
 .frase{
     font-size: 20px;
     text-align: left;
+    
+    
 }
 .campo-desativado {
     background-color: lightsteelblue;
@@ -45,3 +48,21 @@ body{
 #botao-sync{
     float: right;
 }
+#typer{
+     vertical-align: middle;  
+     font-weight: 400;
+     color:#ff9800;
+}
+#icone-titulo{
+    vertical-align: middle;
+    padding: 0 0 .2rem 0;
+    color: #191a1b;
+}
+
+body{
+    background-color: #191a1b;
+    color: #e7e6e4;
+}
+}
+
+
